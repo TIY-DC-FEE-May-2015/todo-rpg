@@ -1,0 +1,40 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.rpg-container {
+	font-family: Helvetica;
+}
+
+.hidden {
+	display: none;
+}
+
+.task {
+	padding: 10px;
+	display: block;
+	font-size: 20px;
+}
+
+.checkBox {
+	display: inline-block;
+	vertical-align: top;
+	border: solid 1px black;
+	height: 20px;
+	width: 20px;
+}
+
+.taskLine {
+	display: inline-block;
+}
+
+.check {
+	background: green;
+}
+
+.lineThrough {
+	text-decoration: line-through;
+	color: rgb(150, 150, 150);
+}
