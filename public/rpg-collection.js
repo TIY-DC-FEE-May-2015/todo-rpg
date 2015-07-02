@@ -24,3 +24,9 @@ var taskIncompleteList = Backbone.Collection.extend({
 	url: "/tasks/incomplete"
 })
 
+var taskId = Backbone.Collection.extend({
+	model: Task,
+
+	url: "/tasks/:taskId"
+})
+

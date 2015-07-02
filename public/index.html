@@ -58,14 +58,16 @@
     	<div class="checkBox"></div>
 
     	<div class="taskLine">
-	    	<div class="taskName"> {{ task }} </div>
-	    	<div class="createdAt"> {{ createdAt }}</div>
+	    	<div class="taskName"><span> {{ task }} </span></div>
+	    	<div class="createdAt">Created {{ createdAt }}</div>
 	    	<div class="value">Difficulty: {{ value }} </div>
-	   <!-- 	{{#if complete}}
-	    	<div class="complete"> Done! </div>
+	   		{{#if complete}}
+	    	<div class="complete hidden"> Done! </div>
 	    	{{else}}
-	    	<div class="complete">Status: Still working on it! </div>
-	    	{{/if}} -->
+	    	<div class="complete hidden">Status: Still working on it! </div>
+	    	{{/if}}
+	    	<button class="edit-button">Edit</button>
+	    	<button class="delete-button">Delete Forever!</button>
 	    </div>
 
     </template>
@@ -73,12 +75,14 @@
 	<script src="libs/underscore.js"></script>
 	<script src="libs/jquery.js"></script>
 	<script src="libs/handlebars.js"></script>
+	<script src="libs/moment.js"></script>
 	<script src="libs/backbone.js"></script>
 
 	<script src="rpg-model.js"></script>
 	<script src="rpg-collection.js"></script>
 	<script src="rpg-view.js"></script>
 	<script src="rpg-view-edit.js"></script>
+	<script src="rpg-view-id.js"></script>
 	<script src="index.js"></script>
   </body>
 </html>

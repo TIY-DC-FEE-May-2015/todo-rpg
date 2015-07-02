@@ -4,6 +4,7 @@ var dispatcher = _.clone(Backbone.Events)
 
 var toggleHidden = function() {
 	$(".container").toggleClass("hidden")
+	$(".buttons").toggleClass("hidden")
 }
 
 var empty = function() {
@@ -88,6 +89,13 @@ $(document).on('ready', function() {
 	})
 
 	dispatcher.on("toggle:hidden", toggleHidden)
+
+	dispatcher.on('edit', function(taskModel) {
+		toggleHidden()
+		editView.updateInputFields(taskModel.toJSON())
+		clickedTask = taskModel
+
+	})
 
 
 })

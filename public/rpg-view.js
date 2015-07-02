@@ -3,7 +3,9 @@ var taskView = Backbone.View.extend({
 	className: "task",
 
 	events: {
-		"click .checkBox": "checkBox"
+		"click .checkBox": "checkBox",
+		"click .delete-button": "deleteButton",
+		"click .edit-button": "editButton"
 	},
 
 	initialize: function() {
@@ -13,28 +15,27 @@ var taskView = Backbone.View.extend({
 
 	render: function() {
 		var attrs = this.model.toJSON()
+
+		attrs.createdAt = moment(attrs.createdAt).fromNow()
 		
 		var htmlString = this.template( attrs )
-		//console.log(attrs, htmlString)
 		this.$el.html( htmlString )
 
 	},
 
-	viewCompleted: function() {
-		console.log("complete")
-		dispatcher.on("toggle:")
-	},
-
-	viewIncomplete: function() {
-		console.log("incomplete")
-	},
-
 	checkBox: function() {
-		this.$el.find(".checkBox").toggleClass("check")
-		this.$el.find(".taskLine").toggleClass("lineThrough")
+		this.$(".checkBox").toggleClass("check")
+		this.$(".taskLine").toggleClass("lineThrough")
 		this.model.set("complete", true)
 		this.model.save()
-		console.log(this.model)
+	},
+
+	deleteButton: function() {
+		$(this.$el).remove()
+	},
+
+	editButton: function() {
+		dispatcher.trigger('edit', this.model)
 	},
 
 	template: Handlebars.compile( $("#task-template").html() )
