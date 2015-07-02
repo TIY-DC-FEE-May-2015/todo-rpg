@@ -9,7 +9,9 @@
     <div class="rpg-container">
 
     	<div class="header">
-    		<div class="title">To Do Challenge</div>
+    		<div class="title">Carrot on a Stick</div>
+
+    		<div class="points">Total Carrots: <span class="score">0</span></div>
 
     		<div class="buttons">
 
@@ -20,9 +22,6 @@
     			<button id="incomplete">View Incomplete</button>
 
     			<button id="newTask">Create New Task</button>
-
-
-
 
     		</div>
     	</div>
@@ -60,7 +59,7 @@
     	<div class="taskLine">
 	    	<div class="taskName"><span> {{ task }} </span></div>
 	    	<div class="createdAt">Created {{ createdAt }}</div>
-	    	<div class="value">Difficulty: {{ value }} </div>
+	    	<div class="value">Carrots: {{ value }} </div>
 	   		{{#if complete}}
 	    	<div class="complete hidden"> Done! </div>
 	    	{{else}}

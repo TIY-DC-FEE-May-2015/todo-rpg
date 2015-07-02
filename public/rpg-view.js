@@ -24,10 +24,29 @@ var taskView = Backbone.View.extend({
 	},
 
 	checkBox: function() {
-		this.$(".checkBox").toggleClass("check")
-		this.$(".taskLine").toggleClass("lineThrough")
-		this.model.set("complete", true)
-		this.model.save()
+		if (this.$(".checkBox").hasClass("check")) {
+
+			this.$(".checkBox").removeClass("check")
+			this.$(".taskLine").removeClass("lineThrough")
+			this.model.set("complete", false)
+			this.model.save()
+
+			getVal = (this.model.toJSON()).value
+
+			dispatcher.trigger('removeScore', getVal)
+		}
+
+		else {
+			this.$(".checkBox").addClass("check")
+			this.$(".taskLine").addClass("lineThrough")
+			this.model.set("complete", true)
+			this.model.save()
+
+			getVal = (this.model.toJSON()).value
+
+			dispatcher.trigger('addScore', getVal)
+			console.log(getVal)
+		}
 	},
 
 	deleteButton: function() {

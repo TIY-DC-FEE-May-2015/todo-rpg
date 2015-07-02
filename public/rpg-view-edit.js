@@ -17,6 +17,7 @@ var EditTaskView = Backbone.View.extend({
 				task: $("#input-task").val(),
 				value: $("#input-value").val()
 			})
+
 			clickedTask.save()
 		}
 		else {

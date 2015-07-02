@@ -1,5 +1,7 @@
-var tasks
+var tasks 
 var clickedTask
+var getVal
+var score = 0
 var dispatcher = _.clone(Backbone.Events)
 
 var toggleHidden = function() {
@@ -95,6 +97,17 @@ $(document).on('ready', function() {
 		editView.updateInputFields(taskModel.toJSON())
 		clickedTask = taskModel
 
+	})
+
+	dispatcher.on('addScore', function() {
+		score += getVal
+		$(".score").text(score)
+	})
+
+	dispatcher.on('removeScore', function() {
+		score -= getVal
+		$(".score").text(score)
+		console.log(getVal, score)
 	})
 
 
