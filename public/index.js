@@ -100,12 +100,12 @@ $(document).on('ready', function() {
 	})
 
 	dispatcher.on('addScore', function() {
-		score += getVal
+		score += parseInt(getVal)
 		$(".score").text(score)
 	})
 
 	dispatcher.on('removeScore', function() {
-		score -= getVal
+		score -= parseInt(getVal)
 		$(".score").text(score)
 		console.log(getVal, score)
 	})
