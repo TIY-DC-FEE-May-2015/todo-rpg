@@ -1,0 +1,37 @@
+ *{
+ 	margin:0;
+ 	padding:0; 
+ 	box-border: border-boxing;
+ }
+
+ html{
+  	background: url("stickybackground.png") no-repeat center center fixed; 
+	background-size: cover;
+}
+
+#rpg-list-container{
+	width: 100%;
+	margin-left:50px;
+	margin-top:10px;
+	font-family: Open Sans, Helvetica, Arial, sans-serif;
+
+}
+ .rpgSpecifics{
+ 	display: inline-block;
+ 	height: 20vh;
+ 	width: 30%;
+ 	border:solid 1px black;
+
+ }
+
+.tasks{
+	display:block;
+}
+.tasks.open{
+	display:none;
+}
+
+button{
+	margin-top:10px;
+}
+

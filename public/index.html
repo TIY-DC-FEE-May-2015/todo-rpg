@@ -1,9 +1,43 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>TodoRPG</title>
-  </head>
-  <body>
-    Hey, you should put some content here!!
-  </body>
+<head> 
+  <title>Steve's To do</title>
+  <link href="index.css" rel="stylesheet" /> 
+</head>
+<body>
+
+  <div id="rpg-list-container" class="container active"> <strong>FINISH ASAP</strong>
+  </div>
+
+  <div id="rpg-edit-container" class="container">
+    <div class="input-container">
+    </div>
+  </div>
+
+  <template id="rpg-template">
+
+  	<div class = "rpgSpecifics">
+  		<div class = "task">Task: {{ task }}</div>
+  		<div class = "value">Value: {{ value }}</div>
+  		<div class = "complete">{{ complete }}{{#if complete}} {{/if}}
+  		</div>
+  		<div class = "created">Created at {{ created }}</div>
+  		<button class = "done"> Done </button>
+  		<button class = "notDone"> Not Done </button>
+  	</div>
+  </template>
+  
+
+  <script src="libs/underscore.js"></script>
+  <script src="libs/jquery.js"></script>
+  <script src="libs/handlebars.js"></script>
+  <script src="libs/backbone.js"></script>
+
+  <script src="rpg-model.js"></script>
+  <script src="rpg-collection.js"></script>
+  <script src="rpg-view.js"></script>
+
+
+  <script src="index.js"></script>
+
+</body>
 </html>
