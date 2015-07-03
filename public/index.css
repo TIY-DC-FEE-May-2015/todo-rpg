@@ -10,18 +10,18 @@ body {
 	color: rgb(70,70,70);
 }
 
+
 .complete {
 	text-decoration: line-through;
 	color: rgb(150,150,150);
 }
 
-.hidden{
+.hidden, .hidden div{
 	height: 0;
 	font-size: 0;
 	display: none;
 	padding: 0;
 	border: none;
-	transition: height .5s;
 }
 
 .hidden.open{
@@ -140,12 +140,7 @@ textarea {
 	margin: 20px;
 }
 
-#filter-box{
-	text-align: center;
-	margin-top: 10px;
-}
-
-.row {
+.row, .button-row {
 	text-align: center;
 }
 
@@ -156,4 +151,5 @@ textarea {
 	padding: 5px;
 	background-color: #505F90;
 	border: solid 3px #2F3F73;
+	margin-bottom: 10px;
 }

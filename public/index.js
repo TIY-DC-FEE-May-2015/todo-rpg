@@ -6,15 +6,24 @@ var viewArray = []
 
 var currentTask
 
-stopEditing = function(){
-	$(".location").toggleClass("hidden")
+toggleSingleView = function(view){
+	$(".task-item").toggleClass("hidden")
+	$(".row").toggleClass("hidden")
+	view.removeClass("hidden")
+	view.find(".single-view-container").toggleClass("hidden")
+}
+
+stopEditing = function(aTaskView){
+	toggleViews()
+	$(".row").removeClass("hidden")
 	$(".task-item").removeClass("hidden")
+	$(".single-view-container").addClass("hidden")
+	$(".edit").val("")
 	currentTask = false
 }
 
 toggleViews = function(){
-	$(".location").toggleClass("hidden")
-	$("#create-new").toggleClass("hidden")
+	$(".location").toggleClass("hidden")	
 }
 
 listFilter = function(bool){
@@ -35,7 +44,7 @@ listAll = function(){
 
 $(document).on("ready", function(){
 
-	
+	var taskEdit = new EditView()	
 
 	myTasks.on("add", function(model){		
 		var view = new TaskView({model})
@@ -45,49 +54,19 @@ $(document).on("ready", function(){
 
 	myTasks.fetch()
 
-	$("#save-button").on("click", function(){
-		if (currentTask) {
-			currentTask.set({
-				task: $(".task.edit").val(),
-				notes: $(".notes.edit").val(),
-				value: $(".value.edit").val(),
-			})
-			console.log(currentTask.toJSON())
-			currentTask.save()
-		} else {
-			myTasks.create({
-				task: $(".task.edit").val(),
-				notes: $(".notes.edit").val(),
-				value: $(".value.edit").val(),
-				date: new Date(),
-			})
-		}
 
-		stopEditing()
-	})
-
-	$("#discard-button").on("click", function(){
-		stopEditing()
-	})
-
+	//this goes to router?
 	dispatcher.on("editing", function(aTaskView){
 		currentTask = aTaskView.model
-		
-		$(".task.edit").val( currentTask.get("task") )
-		$(".value.edit").val( currentTask.get("value") )
-		$("#task-edit-container").find(".date").text( currentTask.get("date") )
-		if (currentTask.get("notes") ){
-			$(".notes.edit").val( currentTask.get("notes") )
-		}
+		taskEdit.updateFields(currentTask.toJSON() )
 		
 		toggleViews()
 
 	})
 
+
 	dispatcher.on("singleview", function(aTaskView){
-		//prefer toggle class hidden, to toggle, but the filter is messing with it
-		$(".task-item").toggleClass("hidden")
-		aTaskView.$el.removeClass("hidden")
+		toggleSingleView(aTaskView.$el)
 	})
 
 	dispatcher.on("task:complete", function(aTaskView){
@@ -97,6 +76,7 @@ $(document).on("ready", function(){
 		aTaskView.model.save()
 	})
 
+//these will go to routers
 	$("#show-complete").on("click", function(){
 		listFilter(true)
 	})
@@ -111,6 +91,7 @@ $(document).on("ready", function(){
 
 	$("#create-new").on("click", function(){
 		toggleViews()
+		$(".row").addClass("hidden")
 	})
 
 })

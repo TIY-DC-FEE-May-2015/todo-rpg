@@ -4,7 +4,7 @@ TaskView = Backbone.View.extend({
 
 	events:{
 		"click .check-button": "completeTask",
-		"click .delete-button": "deleteTask",
+		"click .delete-button": "deleteTask", //this should be in edit view
 		"click .edit-button": "editTask",
 		"click .more-button": "showMore",
 	},
@@ -15,13 +15,15 @@ TaskView = Backbone.View.extend({
 	},
 
 	render: function(model) {
-		this.$el.html( this.template(this.model.toJSON() ) )
-
+		var modelData = this.model.toJSON() 
+		//modelData.createdAt = modelData.date.getDate()
+		var date = modelData.createdAt
+		console.log()
+		this.$el.html( this.template(modelData) )
+		//update view to match a completed model
 		if ( this.model.get("complete") ) {
 			this.$el.find(".task").addClass("complete")
 		}
-
-		
 
 		$("#task-list-location").append( this.$el )
 	},
@@ -31,24 +33,60 @@ TaskView = Backbone.View.extend({
 	},
 
 	deleteTask: function(){
-		this.model.destroy()
+		this.model.destroy()	
 	},
 
 	showMore: function(){
-		this.$el.find(".single-view-container").toggleClass("hidden")
 		dispatcher.trigger("singleview", this)
 	},
 
 	editTask: function(){
-		/*this.$el.find(".task" ).toggleClass("hidden")
-		this.$el.find(".value" ).toggleClass("hidden")
-		this.$el.find(".notes" ).toggleClass("hidden")
-
-		this.$el.find(".more-button").toggleClass("hidden")
-		this.$el.find(".check-button").toggleClass("hidden")*/
 		dispatcher.trigger("editing", this)
 	},
 
 	template: Handlebars.compile( $("#task-template").html() ),
+
+})
+
+var EditView = Backbone.View.extend({
+	el: document.getElementById("task-edit-container"),
+
+	events: {
+		"click #save-button": "saveTask",
+		"click #discard-button": "discardTask",
+	},
+
+	updateFields: function(data){
+		$(".task.edit").val( currentTask.get("task") )
+		$(".value.edit").val( currentTask.get("value") )
+		$("#task-edit-container").find(".date").text( currentTask.get("date") )
+		if (currentTask.get("notes") ){
+			$(".notes.edit").val( currentTask.get("notes") )
+		}
+	},
+
+	saveTask: function(){
+		if (currentTask) {
+			currentTask.set({
+				task: $(".task.edit").val(),
+				notes: $(".notes.edit").val(),
+				value: $(".value.edit").val(),
+			})
+			currentTask.save()
+		} else {
+			myTasks.create({
+				task: $(".task.edit").val(),
+				notes: $(".notes.edit").val(),
+				value: $(".value.edit").val(),
+			})
+			console.log(myTasks)
+		}
+
+		stopEditing()
+	},
+
+	discardTask: function(){
+		stopEditing(this)
+	},
 
 })

@@ -13,17 +13,16 @@
         <div class="task-box">
           <div class="task-info">
             <textarea class="task edit" cols="40"></textarea>
+            <textarea class="notes edit " rows="5" cols="35"></textarea>
             <div class="single-view-container ">
-              <textarea class="notes edit " rows="5" cols="35"></textarea>
               <div class="button-box">
                 <div class="delete-button"></div>
-                <div class="edit-button"></div>
               </div>
             </div>
             XP: <input class="value edit" type="number">
             <div class="date"></div>
           </div>
-          <div class="row">
+          <div class="button-row">
             <button id="save-button">Save Changes</button>
             <button id="discard-button">Discard Changes</button>
           </div> 
@@ -31,10 +30,11 @@
       </div>
 
 	     <div id="task-list-location" class="location"></div> 
+      
        <div class="row">
           <div id="create-new">Add A New Task</div>
        </div>
-       <div id="filter-box">
+       <div class="row">
         <a id="show-complete">Completed Only</a> | <a id="show-incomplete">Unfinished Only</a> | <span id="show-all">Show All Tasks</span>
        </div>
 	  </div>
