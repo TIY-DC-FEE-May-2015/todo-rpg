@@ -1,0 +1,184 @@
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.il {
+	display: inline-block;
+}
+
+/*HEADER*/
+
+.header{
+	background-color: rgb(255, 202, 0);
+	font-family: 'Orbitron', sans-serif;
+	padding: 0.5%;
+}
+.header span{
+	margin-left: 25%;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+.avatar{
+	width: 20%;
+	height: 100%;
+}
+.avatar img{
+	height: 50%;
+	width: 50%;
+	margin: 25% 25% 5% 25%;
+}
+.title-header{
+	width: 50%;
+	height: 100%;
+	vertical-align: top;
+	font-family: 'Monofett', cursive;
+	font-size: 130px;
+	text-align: center;
+	margin-top: 4%;
+	margin-right:50px; 
+}
+.experience{
+	width: 20%;
+	height: 100%;
+	border-radius: 10px;
+	vertical-align: top;
+	font-weight: bold;
+	padding: 20px;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+	box-shadow: 10px 10px 5px rgb(21, 5, 124);
+	background-color: rgb(221, 108, 0);
+}
+.experienceHeader{
+
+	font-size: 50px;
+	margin-top: 10px;
+}
+
+/*BODY*/
+body{
+	background-color: rgb(2, 149, 177);
+	font-family: 'Cantarell', sans-serif;
+}
+
+.task-container{
+	padding: 20px;
+	/*color: rgb(21, 5, 124);*/
+	/*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
+	color: black;
+}
+#task{
+	height: 70vh;
+	width: 30%;
+	vertical-align: top;
+	margin: 1%;
+	margin-left:2.5%;
+	padding: 10px;
+}
+#completed-incomplete-container{
+	height: 70vh;
+	width: 30%;
+	vertical-align: top;
+	margin: 1%;
+}
+.task-info{
+	height: 70vh;
+	width: 30%;
+	vertical-align: top;
+	margin: 1%;
+}
+.title{
+	height: 40px;
+	background-color: rgb(221, 108, 0);
+	border-radius: 10px;
+	color: white;
+	text-align: center;
+	margin-bottom: 15px;
+	/*text-transform: uppercase;*/
+	padding-top:2.5%; 
+	font-family: 'Audiowide', cursive;
+	box-shadow: 10px 10px 5px rgb(21, 5, 124);	
+}
+.task .title{
+	width: 100%;
+}
+.task-template{
+	margin: 10px;
+}
+.task-template input{
+	height: 15px;
+	width: 15px;
+}
+#completed-incomplete-container .title{
+	width: 48%;
+}
+#completed-incomplete-container {
+	margin: 1%;
+	padding: 10px;
+}
+.add-task{
+	height: 40%;
+}
+.task-info{
+	margin: 1%;
+	padding: 10px;
+}
+.taskInput{
+	margin: 20px 10px 10px 10px;	
+}
+.valueInput{
+	margin: 10px;
+}
+.taskInput input{
+	margin-left: 5px;
+	height: 30px;
+	width: 250px;
+	font-size: 12px;
+}
+.valueInput input{
+	margin-left: 5px;
+	height: 30px;
+	width: 250px;
+	font-size: 12px;
+}
+.value{
+	text-align: right;
+	padding-right: 20px;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	color: rgb(221, 108, 0);
+}
+#addTaskButton{
+	height: 30px;
+	width: 90px;
+	background-color: black;
+	border-radius: 10px;
+	color: rgb(255, 202, 0);
+	font-size: 12px;
+	text-align: center;
+	margin-bottom: 15px;
+	margin-left: 30%;
+	font-family: 'Audiowide', cursive;
+	text-transform: uppercase;
+}
+.stat-template-container{
+	margin: 10px;
+}
+.statRow{
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	color: white;
+	font-size: 20px;
+
+}
+/*#completed-incomplete-container .hide.complete{
+	display: none;
+}
+#completed-incomplete-container .hide.incomplete{
+	display: none;
+}*/
+
+
+
+
+
+
+
+
