@@ -10,11 +10,63 @@ var tasks = []
 var taskCounter = 0
 
 var createTask = function(data) {
+  var d = new Date()
+  var h = d.getHours()
+  var m = d.getMinutes()
+  var day = d.getDate()
+  var month 
+  var year = d.getFullYear()
+
+  if (day.length < 2) {
+    day = "0"+day
+  }
+
+  switch(d.getMonth() ) {
+    case 0: 
+      month = "Jan";
+      break;
+    case 1:
+      month = "Feb";
+      break;
+    case 2:
+      month = "Mar";
+      break;
+    case 3:
+      month = "Apr";
+      break;
+    case 4:
+      month = "May";
+      break;
+    case 5:
+      month = "Jun";
+      break;
+    case 6:
+      month = "Jul";
+      break;
+    case 7:
+      month = "Aug";
+      break;
+    case 8:
+      month = "Sep";
+      break;
+    case 9: 
+      month = "Oct";
+      break;
+    case 10:
+      month = "Nov";
+      break;
+    case 11:
+      month = "Dec";
+      break;
+  }
+
+  var date = h+":"+m+" on "+day+" "+month+", "+year
+
   var newTask = {
     task: data.task,
     value: data.value,
     complete: false,
-    createdAt: new Date()
+    createdAt: date,
   }
 
   taskCounter++

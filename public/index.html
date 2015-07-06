@@ -2,8 +2,80 @@
 <html>
   <head>
     <title>TodoRPG</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel='shortcut icon' href='assets/cake.ico' type='image/x-icon'/ >
   </head>
   <body>
-    Hey, you should put some content here!!
+   
+    <div class="list-container">
+      
+      <div id="task-edit-container" class="location hidden">
+        <div class="task-box">
+          <div class="task-info">
+            <textarea class="task edit" cols="40"></textarea>
+            <textarea class="notes edit " rows="5" cols="35"></textarea>
+            <div class="single-view-container ">
+              <div class="button-box">
+                <div class="delete-button"></div>
+              </div>
+            </div>
+            XP: <input class="value edit" type="number">
+            <div class="date"></div>
+          </div>
+          <div class="button-row">
+            <button id="save-button">Save Changes</button>
+            <button id="discard-button">Discard Changes</button>
+          </div> 
+        </div>
+      </div>
+
+	     <div id="task-list-location" class="location"></div> 
+      
+       <div class="row">
+          <a href="#create" id="create-new">Add A New Task</a>
+       </div>
+       <div class="row">
+        <a id="show-complete">Completed Only</a> | <a id="show-incomplete">Unfinished Only</a> | <span id="show-all">Show All Tasks</span>
+       </div>
+	  </div>
+
+
+
+  
+  	<template id="task-template">
+  		<div class="task-box">
+	  		<div class="task-info">
+	  			<div class="task display">{{task}}</div>
+            <div class="single-view-container hidden">
+              <div class="notes display">{{notes}}</div>
+              <div class="button-box">
+                <div class="delete-button"></div>
+                <a href="#edit/{{id}}" class="edit-button"></a>
+              </div>
+            </div>
+	  			<div class="value display">XP: {{value}}</div>
+	  			<div class="date">{{createdAt}}</div>
+	  		</div>
+  			<div class="button-box">
+  				<div class="check-button"></div>
+          <div class="more-button"></div>
+  			</div>
+
+        
+  		</div>
+  	</template> 
+  
+
+  <script type="text/javascript" src="libs/jquery.js"></script>
+  <script type="text/javascript" src="libs/underscore.js"></script>
+  <script type="text/javascript" src="libs/handlebars.js"></script>
+  <script type="text/javascript" src="libs/backbone.js"></script>
+
+  <script src="models.js"></script>
+  <script src="collections.js"></script>
+  <script type="text/javascript" src="views.js"></script>
+  <script type="text/javascript" src="router.js"></script>
+
+	<script type="text/javascript" src="index.js"></script>
   </body>
 </html>

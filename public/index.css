@@ -1,0 +1,158 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: rgb(10,10,10);
+	font-family: palatino;
+	color: rgb(70,70,70);
+}
+
+
+.complete {
+	text-decoration: line-through;
+	color: rgb(150,150,150);
+}
+
+.hidden, .hidden div{
+	height: 0;
+	font-size: 0;
+	display: none;
+	padding: 0;
+	border: none;
+}
+
+.hidden.open{
+	height: auto;
+	font-size: inherit;
+	transition: height .5s;
+}
+
+.list-container {
+	padding: 5px;
+	width: 400px;
+	height: 80vh;
+	box-shadow: 10px 10px 5px RGB(52, 52, 52);
+	margin: 0 auto;
+	background-color: white;
+	margin-top: 10vh;
+}
+
+#task-list-location {
+	height: 64vh;
+	margin: 2vh 5px;
+	overflow: scroll;
+	margin-bottom: solid 1px gray;
+}
+
+.task-item {
+
+}
+
+.task-box{
+	margin: 5px;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	border-bottom: solid 1px rgb(52,52,52);
+	min-height: 70px;
+}
+
+.task-info{
+	display: inline-block;
+	vertical-align: top;
+	width: 315px;
+}
+
+.button-box{
+	display: inline-block;
+	float: right;
+}
+
+.button-box div {
+	margin: 5px;
+}
+
+.check-button {
+	background-image: url("assets/check.png");
+	background-size: cover;
+	width: 20px;
+	height: 20px;
+}
+
+.more-button {
+	background-image: url("assets/more.png");
+	background-size: cover;
+	width: 20px;
+	height: 20px;
+}
+
+.delete-button {
+	background-image: url("assets/delete.png");
+	background-size: cover;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+}
+
+.edit-button {
+	background-image: url("assets/edit.png");
+	background-size: cover;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+}
+
+.task{
+	margin-bottom: 8px;
+}
+
+.value{
+	background-color: rgb(200,200,200);
+	padding: 3px 5px;
+	border-radius: 10px;
+	text-align: right;
+	display: inline-block;
+}
+
+textarea {
+	font-size: 15px;
+	font-family: palatino;
+}
+
+.value.hidden{
+	display:none;
+}
+
+.value.edit{
+	font-size: 15px;
+	font-family: palatino;
+	width: 45px;
+}
+
+.date{
+	display: inline-block;
+	font-size: 12px;
+	font-family: sans-serif;
+	margin-left: 20px;
+	vertical-align: bottom;
+}
+
+.notes{
+	margin: 20px;
+}
+
+.row, .button-row {
+	text-align: center;
+}
+
+#create-new {
+	display: inline-block;
+	width: auto;
+	color: rgb(30,30,30);
+	padding: 5px;
+	background-color: #505F90;
+	border: solid 3px #2F3F73;
+	margin-bottom: 10px;
+}
