@@ -1,0 +1,144 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #646D78;
+	font-family: 'Roboto', sans-serif;
+}
+
+.header {
+	font-size: 4.6em;
+	font-family: 'Oswald', sans-serif;
+	text-align: center;
+	width: 100%;
+	background-color: #404A54;
+	color: #F6F7FB;
+	padding: 3%;
+}
+
+#title{
+	display: block;
+	margin-bottom: -20px;
+}
+
+.button {
+	display: inline-block;
+	padding:5px 8px;
+	text-transform: uppercase;
+	border: 2px solid #F6F7FB;
+	font-size: .2em;
+}
+
+#task-list-container {
+	margin: 0px auto;
+}
+
+.task {
+	display: inline-block;
+	width: 24%;
+	min-width: 300px;
+	height: 35vh;
+	margin: .5%;
+	vertical-align: top;
+	position: relative;
+	background-color: #F6F7FB;
+	text-align: center;
+	min-height: 300px;
+}
+
+.task div {
+	display: inline-block;
+}
+
+.complete {
+	font-size: 20px;
+}
+
+.check-complete,
+.check-incomplete {
+	width: 17px;
+	height: 17px;
+	border: 2px solid #404A54;
+	font-weight: 700;
+	line-height: 15px;
+	font-size: 19px;
+}
+
+.check-incomplete {
+	color: #EF0851;
+}
+
+.check-complete {
+	color: #8BDD61;
+}
+
+.status {
+	margin: 5px;
+}
+
+
+.incomplete .check-complete span,
+.completed .check-incomplete span {
+	display: none;
+}
+
+.title {
+	font-size: 1.7em;
+	width: 100%;
+	padding: 10px;
+	background-color: #E5E9EE;
+	margin-bottom: 20px;
+}
+
+.title span {
+	width: 84%;
+	display: inline-block;
+	font-family: 'Oswald', sans-serif;
+}
+
+.value {
+	padding: 8px;
+	border-radius: 50%;
+	background-color: #8BDD61;
+	border: 2px solid #77C948;
+	float: right;
+}
+
+.time-created {
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
+	text-align: right;
+}
+
+#add-task.hidden {
+	display: none;
+}
+
+#add-task {
+	width: 300px;
+	margin: 30px auto;
+	color: #F6F7FB;
+	font-family: "Oswald",sans-serif;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 15px;
+	border: 2px solid #E5E9EE;
+	background-color: #404A54;
+}
+
+
+
+#add-task .button {
+	font-size: 16px;
+	margin-top: 24px;
+	margin-bottom: 16px;
+}
+
+#add-task p {
+	margin-top: 10px;
+	font-size: 24px;
+}
