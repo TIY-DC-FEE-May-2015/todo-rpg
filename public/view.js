@@ -1,33 +1,53 @@
 //view to create new instances and render initial list
 var TaskView = Backbone.View.extend({
 
-  	el: "#task-app",
 
-	StatsTemplate: Handlebars.compile( $("#stats").html() ),
+	
+  tagName: 'li',
+
+  events: {
+      "click": "strikethrough",
+      "click": 
+      //"dblclick label": "edit",
+      "keypress ": "updateOnEnter",
+      //"click .delete": "clear",
+      
+    },
+
 
 	initialize: function(){
-		this.allCheckbox = this.$('#toggle-all')[0];
-		this.$input = this.$('#new-todo');
-		this.$footer = this.$('#footer');
-
 
 		this.render()
-		this.listenTo(this.model, "add", this.addTask)
+		this.listenTo(this.model, "change", this.render)
 	},
 
 	render: function(){
 		var attrs = this.model.toJSON()
-
 		var htmlString = this.template(attrs)
-    	this.$el.html( htmlString )
+    this.$el.html( htmlString )
+
+    this.$el.toggleClass( 'completed', this.model.get("complete") );
 	},
 
-	addTask: function( taskModel ) {
-      var view = new TaskView({
-       model: taskModel
-   		})
-      $("#todo-list").append( view.$el );
-    },
+  template: Handlebars.compile( $("#task-info").html() ),
+
+  editInformation: function() {
+    dispatcher.trigger("editing", this.model)
+    //put info into input field 
+  },
+
+  strikethrough: function() {
+    console.log("you clicked me ")
+    this.$el.toggleClass( 'toggle', this.model.set({complete: true}) );
+    this.model.save()
+
+  },
+
+  toggleComplete: function(){
+    this.$el.addClass("complete")
+  }
+	/*
+
 
     newAttrs: function() {
       return {
@@ -68,5 +88,5 @@ var TaskView = Backbone.View.extend({
           'complete': completed
         });
       });
-    }
+    }*/
 })

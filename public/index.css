@@ -8,7 +8,15 @@
 
 #task-app {
 	background-color: rgba(43, 43, 43, 1);
+	color: white;
 	height: 80vh;
+}
+
+.all-info {
+	position: relative;
+	
+	font-size: 18px;
+	color:white;
 }
 
 #info{
@@ -46,7 +54,15 @@ label, #toggle-all{
 	height: 24px;
 }
 
-.hidden {
-	display: none;
+.toggle {
+	text-decoration: line-through;
 }
 
+li{
+	text-align: center;
+	list-style-type: none;
+}
+
+.complete {
+	display:none;
+}

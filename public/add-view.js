@@ -1,29 +1,22 @@
+//view to add,delete, edit 
+
 var AddView = Backbone.View.extend({
 
-    tagName: 'li',
+   
 
-    // Cache the template function for a single item.
+    
     template: Handlebars.compile( $("#task-info").html() ),
 
-    // The DOM events specific to an item.
-    events: {
-      "click .toggle": "togglecompleted",
-      "dblclick label": "edit",
-      "keypress .edit": "updateOnEnter",
-      "click .delete": "clear",
-      
-    },
-
-    // The TodoView listens for changes to its model, re-rendering. Since there's
-    // a one-to-one correspondence between a **Todo** and a **TodoView** in this
-    // app, we set a direct reference on the model for convenience.
+    
+    
+    
     initialize: function() {
       this.listenTo(this.model, 'change', this.render);
     },
 
     render: function() {
       this.$el.html( this.template( this.model.attributes ) );
-      this.$el.toggleClass( 'completed', this.model.get("complete") );
+      
       this.toggleVisible();  
 
       this.$input = this.$(".edit");
@@ -44,9 +37,8 @@ var AddView = Backbone.View.extend({
     },
 
     // NEW - Toggle the `"completed"` state of the model.
-    togglecompleted: function() {
-      this.model.toggle();
-    },
+    
+
 
     edit: function() {
       this.$el.addClass('editing');
@@ -69,6 +61,6 @@ var AddView = Backbone.View.extend({
       }
     }
 
-})
+})*/
 
   

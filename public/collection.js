@@ -7,7 +7,7 @@ var TodoList = Backbone.Collection.extend({
 
  
 //filter completed functions
-  completed: function() {
+  /*completed: function() {
    return this.filter(function( task ) {
       return task.get("complete");
       })
@@ -16,6 +16,6 @@ var TodoList = Backbone.Collection.extend({
    remaining: function() {
       return this.without.apply( this, this.complete() );
     },
-
+*/
 
 })

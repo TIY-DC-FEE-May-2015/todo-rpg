@@ -1,19 +1,17 @@
+
 var Task = Backbone.Model.extend({
 
 
 	defaults: {
-		"task": "Unknown",
-		"value": 0,
-		"complete": false,
-		"createdAt": new Date(),
+		task: "Unknown",
+		value: 0,
+		complete: false,
     
 	},
 
-	toggle: function() {
-      this.save({
-        complete: !this.get("complete")
-      })
-    }
+	initialize: function(){
+
+	},
 
 
 })

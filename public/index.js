@@ -1,7 +1,7 @@
 var tasks 
-var activeTask
+//var activeTask
 var dispatcher = _.clone(Backbone.Events)
-var ENTER_KEY = 13;
+//var ENTER_KEY = 13;
 
 var Router = Backbone.Router.extend({
 
@@ -26,10 +26,16 @@ var Router = Backbone.Router.extend({
 
 $(document).on("ready", function() {
 
-	new TodoList(); 
+tasks = new TodoList(); 
 
+tasks.on("add", function(taskModel){
+  var view = new TaskView({
+       model: taskModel
+      })
+  $("#todo-list").append( view.$el );
+}),
 
-
+tasks.fetch()
 
     var router = new Router()
   	Backbone.history.start()

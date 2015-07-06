@@ -19,23 +19,19 @@
   	<footer id="footer"></footer>
   </div>
   	<div id="info">
-    	<p>Click to edit a task</p>
+    	<p>Click to complete a task</p>
     	<p>Created by Taj</p>
     </div>
+
   
   	
     <template id="task-info">
     	<div class="all-info">
-    		<input type="checkbox" class="toggle"/>
     		 <span class="task">{{ task }}</span>
-    		 <span class="value">{{ value }} pts</span>
-    		 <span class= "delete"> x </span>
-    		 <div>
-    		 <a href="#edit" class="edit"> edit </a>
-    		 </div>
+    		 <span class="value">{{ value }}</span>
     	</div>
     </template>
-
+    <!--
     <template id="stats">
     	{{#each value }}
     	<div class="points">{{this}}</div>
@@ -47,7 +43,7 @@
     	<button id="clear-completed">Clear completed{{complete}}</button>
     	{{/if}}
     </template>
-
+  -->
     <script src="libs/underscore.js"></script>
 	<script src="libs/jquery.js"></script>
 	<script src="libs/handlebars.js"></script>
