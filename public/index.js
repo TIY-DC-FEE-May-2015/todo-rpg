@@ -1,4 +1,4 @@
-var tasks 
+var tasks, attrs 
 var clickedTask
 var getVal
 var score = 0
@@ -9,11 +9,9 @@ var toggleHidden = function() {
 	$(".buttons").toggleClass("hidden")
 }
 
-var empty = function() {
-	$("#task-container").empty()
-}
-
 $(document).on('ready', function() {
+	$(".view").hide()
+	$("#task-list").show()
 
 	tasks = new taskList()
 
@@ -21,6 +19,12 @@ $(document).on('ready', function() {
 		var view = new taskView({
 			model: taskModel
 		})
+		
+		var isComplete = view.model.toJSON().complete
+
+		if (isComplete === true) {
+			isComplete === false
+		}
 
 		$("#task-container").append(view.$el)
 	})
@@ -29,7 +33,9 @@ $(document).on('ready', function() {
 
 	$("#complete").on("click", function() {
 
-		empty()
+		$(".view").hide()
+		$("#complete-container").empty()
+		$("#complete-list").show()
 
 		tasks = new taskCompleteList()
 
@@ -37,13 +43,24 @@ $(document).on('ready', function() {
 			var view = new taskView({
 				model: taskModel
 			})
-			$("#task-container").append(view.$el)
+
+			var viewModel = view.model.toJSON()
+
+			if (viewModel.complete === true) {
+				view.$(".checkBox").addClass("check")
+				view.$(".taskLine").addClass("lineThrough")
+			}
+
+			$("#complete-container").append(view.$el)
 		})
-		tasks.fetch()
+		tasks.fetch() 
+
 	})
 
 	$("#incomplete").on("click", function() {
-		empty()
+		$(".view").hide()
+		$("#incomplete-container").empty()
+		$("#incomplete-list").show()
 
 		tasks = new taskIncompleteList()
 
@@ -51,25 +68,14 @@ $(document).on('ready', function() {
 			var view = new taskView({
 				model: taskModel
 			})
-			$("#task-container").append(view.$el)
+			$("#incomplete-container").append(view.$el)
 		})
 		tasks.fetch()
 	})
 
 	$("#all").on("click", function() {
-		empty()
-
-		tasks = new taskList()
-
-		tasks.on("add", function(taskModel){
-			var view = new taskView({
-				model: taskModel
-			})
-
-			$("#task-container").append(view.$el)
-		})
-
-		tasks.fetch()
+		$(".view").hide()
+		$("#task-list").show()
 
 	})
 
@@ -79,7 +85,8 @@ $(document).on('ready', function() {
 	})
 
 	$("#newTask").on("click", function() {
-		toggleHidden()
+		$(".view").hide()
+		$("#edit-container").show()
 
 		editView.updateInputFields()
 
@@ -87,25 +94,30 @@ $(document).on('ready', function() {
 	})
 
 	$("#cancel").on("click", function() {
-		toggleHidden()
+		$("#edit-container").hide()
+		$("#task-list").show()
 	})
 
-	dispatcher.on("toggle:hidden", toggleHidden)
+	dispatcher.on("toggle:hidden", function() {
+		$("#edit-container").hide()
+		$("#task-list").show()
+	})
 
 	dispatcher.on('edit', function(taskModel) {
-		toggleHidden()
+		$(".view").hide()
+		$("#edit-container").show()
 		editView.updateInputFields(taskModel.toJSON())
 		clickedTask = taskModel
 
 	})
 
 	dispatcher.on('addScore', function() {
-		score += parseInt(getVal)
+		score += getVal
 		$(".score").text(score)
 	})
 
 	dispatcher.on('removeScore', function() {
-		score -= parseInt(getVal)
+		score -= getVal
 		$(".score").text(score)
 		console.log(getVal, score)
 	})
