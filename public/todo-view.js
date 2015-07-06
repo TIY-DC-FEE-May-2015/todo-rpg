@@ -2,7 +2,7 @@ App.View.TaskView = Backbone.View.extend({
 
 	events:{
 
-		"click #taskStatus": "ChangeValueComplete"
+		"click .taskStatus": "ChangeValueComplete"
 	},
 
 	ClassName: "task",
@@ -18,15 +18,25 @@ App.View.TaskView = Backbone.View.extend({
 
 		var atttributes = this.model.toJSON()
 		var $htmlString = $( this.template(atttributes))
-		$("#taskStatus").prop("checked", atttributes.complete)
-		console.log(atttributes.complete)
 		this.$el.html($htmlString)
+
+		this.$(".taskStatus").prop("checked", atttributes.complete)
 	},
 
 	ChangeValueComplete: function(){
 
-		this.model.set("complete", true)
-		this.model.save()
+		var status = this.$(".taskStatus").is(':checked')
+		console.log(status)
+
+		if(status){
+			this.model.set("complete", true)
+			this.model.save()
+		}
+		else{
+			this.model.set("complete", false)
+			this.model.save()	
+		}
+		
 		
 	},
 
@@ -41,7 +51,7 @@ App.View.CompleteTaskView = Backbone.View.extend({
 
 	events: {
 		"click #complete": "displayComplete",
-		"click #taskStatus": "ChangeValueComplete"
+		"click .taskStatus": "ChangeValueComplete"
 	},
 
 	initialize: function(){
@@ -55,8 +65,8 @@ App.View.CompleteTaskView = Backbone.View.extend({
 
 		var atttributes = this.model.toJSON()
 		var $htmlString = $( this.template(atttributes))
-		$htmlString.prop("checked", atttributes.complete)
 		this.$el.html($htmlString)
+		this.$(".taskStatus").prop("checked", atttributes.complete)
 	},
 
 	displayComplete: function(){
@@ -82,7 +92,7 @@ App.View.IncompleteTaskView = Backbone.View.extend({
 
 	events: {
 		"click #incomplete": "displayIncomplete",
-		"click #taskStatus": "ChangeValueComplete"
+		"click .taskStatus": "ChangeValueComplete"
 	},
 
 	initialize: function(){
@@ -96,8 +106,8 @@ App.View.IncompleteTaskView = Backbone.View.extend({
 
 		var atttributes = this.model.toJSON()
 		var $htmlString = $( this.template(atttributes))
-		$htmlString.prop("checked", atttributes.complete)
 		this.$el.html($htmlString)
+		this.$(".taskStatus").prop("checked", atttributes.complete)
 	},
 
 	displayIncomplete: function(){
@@ -150,7 +160,6 @@ App.View.Stats = Backbone.View.extend({
 
 		var atttributes = this.model.toJSON()
 		var $htmlString = $( this.template(atttributes))
-		$htmlString.prop("checked", atttributes.complete)
 		this.$el.html($htmlString)
 	},
 

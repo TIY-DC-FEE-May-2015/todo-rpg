@@ -15,7 +15,7 @@
   		  <div class="value">{{ value }} pts</div>
 
 	      <div class="il task-template"> 
-	      	<input type="checkbox" class="il" id="taskStatus"/>
+	      	<input type="checkbox" class="il taskStatus"/>
 	      	{{ task }}
 	      </div>
       	</div>
@@ -23,11 +23,11 @@
 
     <template id="stat-template">
   		<div class="stat-template-container">
-  		  <div class="il experienceStat"><div class="il statRow">Experience:</div> {{ experience }}</div>
-  		  <div class="il level"><div class="il statRow">Levels Gained:</div> {{ level }}</div>
-  		  <div class="il levelup"><div class="il statRow">Experience to next level:</div> {{ expToNextLevel}}</div>
-  		  <div class="il tasksCompleted"><div class="il statRow">Tasks Completed:</div> {{ completed }}</div>
-  		  <div class="il percentCompleted"><div class="il statRow">Percentage of tasks completed:</div> {{ percentComplete }}</div>
+  		  <div class="experienceStat"><div class="il statRow">Experience:</div> {{ experience }}</div>
+  		  <div class="level"><div class="il statRow">Levels Gained:</div> {{ level }}</div>
+  		  <div class="levelup"><div class="il statRow">Experience to next level:</div> {{ expToNextLevel}}</div>
+  		  <div class="tasksCompleted"><div class="il statRow">Tasks Completed:</div> {{ completed }}</div>
+  		  <div class="percentCompleted"><div class="il statRow">Completed task %:</div> <div class="il" id="percentage"></div></div>
       	</div>
     </template>
 

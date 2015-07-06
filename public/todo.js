@@ -37,7 +37,6 @@ $(document).on("ready", function(){
 		 App.view = new App.View.CompleteTaskView({
 			model: taskModel
 		})
-		 console.log(App.view.$el)
 		$(".complete").append(App.view.$el)
 		//$(".NumberOfTasks").text("Completed tasks:" + " " + App.completeTasks.length)
 		//$(".PercentageOfTasksCompleted").text("Percentage of tasks completed:" + " " + ((App.completeTasks.length * 100)/App.tasks.length) + "%")
@@ -71,6 +70,8 @@ $(document).on("ready", function(){
 
 		$(".stats").append(App.view.$el)
 		$(".experienceHeader").text(App.Stats.models[0].attributes.experience)
+		var number = App.Stats.models[0].attributes.percentComplete * 100
+		$("#percentage").text(Math.round( number * 10 ) / 10 + "%")
 	})
 
 	App.Stats.fetch()
