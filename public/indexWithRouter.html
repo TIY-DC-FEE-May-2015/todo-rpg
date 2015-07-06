@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TodoRPG</title>
+    <link href="index.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <div class="rpg-container">
+
+    	<div class="header">
+    		<div class="title">Carrot on a Stick</div>
+
+    		<div class="points">Total Carrots: <span class="score">0</span></div>
+
+    		<div class="buttons">
+
+    			<button id="newTask">Create New Task</button>
+
+    			<div class="view-button">
+
+	    			<button id="all">View All</button>
+	    			
+	    			<button id="complete">View Complete</button>
+
+	    			<button id="incomplete">View Incomplete</button>
+	    		</div>
+
+    		</div>
+    	</div>
+<!-- Start Body -->
+    	<div id="task-list" class="view">
+    	
+    		<div id="task-container"></div>
+    	</div>
+
+    	<div id="complete-list" class="view">
+    		<div id="complete-container"></div>
+    	</div>
+
+    	<div id="incomplete-list" class="view">
+    		<div id="incomplete-container"></div>
+    	</div>
+
+    	<div id="single-list" class="view"></div>
+
+    	<div id="edit-container" class="hidden">
+    		<div class="input-container">
+    			<div class="row">
+    				<input type="text" id="input-task" placeholder="what is your task?" />
+    			</div>
+
+    			<div class="row">
+    				<input type="text" id="input-value" placeholder="difficulty? (1-10)" />
+    			</div>
+
+    			<button id="save-task">Challenge Accepted!</button>
+
+    			<button id="cancel">Cancel</button>
+
+    		</div>
+
+    	</div>
+
+    </div>
+
+
+    <template id="task-template">
+
+    	<div class="checkBox"></div>
+
+    	<div class="taskLine">
+	    	<div class="taskName"><span> {{ task }} </span></div>
+	    	<div class="createdAt">Created {{ createdAt }}</div>
+	    	<div class="value">Carrots: {{ value }} </div>
+	   		{{#if complete}}
+	    	<div class="complete hidden"> Done! </div>
+	    	{{else}}
+	    	<div class="complete hidden">Status: Still working on it! </div>
+	    	{{/if}}
+	    </div>	
+	    	<button class="edit-button">Edit</button>
+	    	<button class="delete-button">Delete Forever!</button>
+	    
+
+
+
+    </template>
+
+	<script src="libs/underscore.js"></script>
+	<script src="libs/jquery.js"></script>
+	<script src="libs/handlebars.js"></script>
+	<script src="libs/moment.js"></script>
+	<script src="libs/backbone.js"></script>
+
+	<script src="rpg-model.js"></script>
+	<script src="rpg-collection.js"></script>
+	<script src="rpg-view.js"></script>
+	<script src="rpg-view-edit.js"></script>
+	<script src="rpg-view-id.js"></script>
+	<script src="rpg-router.js"></script>
+    <script src="rpg-view-complete.js"></script>
+	<script src="index.js"></script>
+  </body>
+</html>
