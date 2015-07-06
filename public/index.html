@@ -15,30 +15,43 @@
 
     		<div class="buttons">
 
-    			<button id="all">View All</button>
-    			
-    			<button id="complete">View Complete</button>
-
-    			<button id="incomplete">View Incomplete</button>
-
     			<button id="newTask">Create New Task</button>
+
+    			<div class="view-button">
+
+	    			<button id="all">View All</button>
+	    			
+	    			<button id="complete">View Complete</button>
+
+	    			<button id="incomplete">View Incomplete</button>
+	    		</div>
 
     		</div>
     	</div>
-
-    	<div id="task-list" class="container">
+<!-- Start Body -->
+    	<div id="task-list" class="view">
     	
     		<div id="task-container"></div>
     	</div>
 
-    	<div id="edit-container" class="container hidden">
+    	<div id="complete-list" class="view">
+    		<div id="complete-container"></div>
+    	</div>
+
+    	<div id="incomplete-list" class="view">
+    		<div id="incomplete-container"></div>
+    	</div>
+
+    	<div id="single-list" class="view"></div>
+
+    	<div id="edit-container" class="view">
     		<div class="input-container">
     			<div class="row">
     				<input type="text" id="input-task" placeholder="what is your task?" />
     			</div>
 
     			<div class="row">
-    				<input type="text" id="input-value" placeholder="difficulty? (1-10)" />
+    				<input type="number" value="1" min="1" max="10" id="input-value" placeholder="difficulty? (1-10)" />
     			</div>
 
     			<button id="save-task">Challenge Accepted!</button>
@@ -65,9 +78,12 @@
 	    	{{else}}
 	    	<div class="complete hidden">Status: Still working on it! </div>
 	    	{{/if}}
+	    </div>	
 	    	<button class="edit-button">Edit</button>
 	    	<button class="delete-button">Delete Forever!</button>
-	    </div>
+	    
+
+
 
     </template>
 
@@ -82,6 +98,8 @@
 	<script src="rpg-view.js"></script>
 	<script src="rpg-view-edit.js"></script>
 	<script src="rpg-view-id.js"></script>
+	<script src="rpg-router.js"></script>
+    <script src="rpg-view-complete.js"></script>
 	<script src="index.js"></script>
   </body>
 </html>
