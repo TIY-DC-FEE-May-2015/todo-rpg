@@ -136,7 +136,7 @@ App.View.AddTask = Backbone.View.extend({
       App.tasks.create({
 
         task: $("#new-task").val(),
-        value: $("#new-value").val()
+        value: parseInt($("#new-value").val())
       })
 
     }
