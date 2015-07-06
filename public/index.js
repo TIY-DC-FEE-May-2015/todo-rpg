@@ -6,6 +6,8 @@ var viewArray = []
 
 var currentTask
 
+var router
+
 toggleSingleView = function(view){
 	$(".task-item").toggleClass("hidden")
 	$(".row").toggleClass("hidden")
@@ -52,15 +54,13 @@ $(document).on("ready", function(){
 		view.render()
 	})
 
-	myTasks.fetch()
-
 
 	//this goes to router?
 	dispatcher.on("editing", function(aTaskView){
 		currentTask = aTaskView.model
 		taskEdit.updateFields(currentTask.toJSON() )
 		
-		toggleViews()
+//		toggleViews()
 
 	})
 
@@ -88,10 +88,17 @@ $(document).on("ready", function(){
 	$("#show-all").on("click", function(){
 		listAll()
 	})
-
+/*
 	$("#create-new").on("click", function(){
 		toggleViews()
 		$(".row").addClass("hidden")
 	})
+	*/
+
+	myTasks.fetch()
+
+	router = new Router()
+	Backbone.history.start()
+	
 
 })

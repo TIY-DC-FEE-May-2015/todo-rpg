@@ -4,6 +4,4 @@ var TaskList = Backbone.Collection.extend({
 
 	url: "/tasks",
 
-	
-
 })

@@ -32,7 +32,7 @@
 	     <div id="task-list-location" class="location"></div> 
       
        <div class="row">
-          <div id="create-new">Add A New Task</div>
+          <a href="#create" id="create-new">Add A New Task</a>
        </div>
        <div class="row">
         <a id="show-complete">Completed Only</a> | <a id="show-incomplete">Unfinished Only</a> | <span id="show-all">Show All Tasks</span>
@@ -50,7 +50,7 @@
               <div class="notes display">{{notes}}</div>
               <div class="button-box">
                 <div class="delete-button"></div>
-                <div class="edit-button"></div>
+                <a href="#edit/{{id}}" class="edit-button"></a>
               </div>
             </div>
 	  			<div class="value display">XP: {{value}}</div>
@@ -74,6 +74,7 @@
   <script src="models.js"></script>
   <script src="collections.js"></script>
   <script type="text/javascript" src="views.js"></script>
+  <script type="text/javascript" src="router.js"></script>
 
 	<script type="text/javascript" src="index.js"></script>
   </body>

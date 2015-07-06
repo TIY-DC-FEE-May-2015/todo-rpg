@@ -81,12 +81,13 @@ var EditView = Backbone.View.extend({
 			})
 			console.log(myTasks)
 		}
-
-		stopEditing()
+		router.navigate("", {trigger: true})
+		//stopEditing()
 	},
 
 	discardTask: function(){
-		stopEditing(this)
+		router.navigate("", {trigger: true})
+		//stopEditing(this)
 	},
 
 })

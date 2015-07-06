@@ -62,7 +62,7 @@ body {
 .task-info{
 	display: inline-block;
 	vertical-align: top;
-	width: 330px;
+	width: 315px;
 }
 
 .button-box{
@@ -133,7 +133,10 @@ textarea {
 
 .date{
 	display: inline-block;
-	text-align: right;
+	font-size: 12px;
+	font-family: sans-serif;
+	margin-left: 20px;
+	vertical-align: bottom;
 }
 
 .notes{
