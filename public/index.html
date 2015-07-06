@@ -2,8 +2,60 @@
 <html>
   <head>
     <title>TodoRPG</title>
+    <link href="index.css" rel="stylesheet"/>
   </head>
   <body>
-    Hey, you should put some content here!!
+  	
+  <div id = "task-app">		
+  	<header id = "header">
+  		<p>task manager </p>
+  		<input type="text" id="new-todo" placeholder=" what do you need to do?"/>
+  	</header>
+  	<div id="main">
+  		<input id="toggle-all" type="checkbox"/>
+  		<label for="toggle-all">Mark all as complete</label>
+  		<ul id="todo-list"></ul>
+  	</div>
+  	<footer id="footer"></footer>
+  </div>
+  	<div id="info">
+    	<p>Click to edit a task</p>
+    	<p>Created by Taj</p>
+    </div>
+  
+  	
+    <template id="task-info">
+    	<div class="all-info">
+    		<input type="checkbox" class="toggle"/>
+    		 <span class="task">{{ task }}</span>
+    		 <span class="value">{{ value }} pts</span>
+    		 <span class= "delete"> x </span>
+    		 <div>
+    		 <a href="#edit" class="edit"> edit </a>
+    		 </div>
+    	</div>
+    </template>
+
+    <template id="stats">
+    	{{#each value }}
+    	<div class="points">{{this}}</div>
+    	{{/each}}}}
+    	<a class="selected" href="#/">All</a>
+    	<a href="#/active">Active</a>
+    	<a href="#/completed">Completed</a>
+    	{{#if complete}}
+    	<button id="clear-completed">Clear completed{{complete}}</button>
+    	{{/if}}
+    </template>
+
+    <script src="libs/underscore.js"></script>
+	<script src="libs/jquery.js"></script>
+	<script src="libs/handlebars.js"></script>
+	<script src="libs/backbone.js"></script>
+
+    <script src="model.js"></script>
+    <script src="collection.js"></script>
+    <script src="view.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
