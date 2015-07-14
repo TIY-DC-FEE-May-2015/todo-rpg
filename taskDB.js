@@ -110,6 +110,13 @@ exports = module.exports = {
       task: "[Hard Mode] Have a view that provides statistics",
       value: 4
     })
+
+    createTask({
+      task: "[Hard Mode] Have routers link to different parts of the page",
+      value: 7
+    })
+
+
   }
 
 }
