@@ -4,7 +4,7 @@
 
 [TodoMVC](http://todomvc.com/) + [HabitRPG](https://habitrpg.com) = **TodoRPG**
 
-This project will use Backbone Models, Controllers and Views to create an game based on a 'todo' list.  This allows the user to have fun while completing chores!
+This project uses Backbone Models, Controllers and Views to create a game based on a 'todo' list.  This allows the user to have fun while completing chores!
 
 The TodoRPG does the following: 
  * Shows all the tasks, buttons to view all complete or incomplete tasks
