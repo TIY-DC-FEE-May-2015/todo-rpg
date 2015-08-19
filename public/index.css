@@ -1,0 +1,159 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+button {
+	padding: 5px;
+	background: none;
+	border: solid 1px black;
+	border-radius: 5px;
+}
+
+input {
+	font-size: 18px;
+	width: 300px;
+	height: 40px;
+	padding: 5px;
+}
+
+.rpg-container {
+	font-family: Helvetica;
+	background: rgb(18, 33, 38);
+	height: 100vh;
+}
+
+.header{
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.title{
+	font-size: 48px;
+	padding: 10px;
+	text-align: center;
+	color: rgb(199, 223, 230);
+}
+
+.points {
+	text-align: center;
+	font-size: 28px;
+	margin-bottom: 10px;
+	color: rgb(255, 131, 46);
+}
+
+.buttons {
+	margin-left: 50px;
+	position: relative;
+}
+
+.view-button {
+	position: absolute;
+	right: 50px;
+	top: 0px;	
+}
+
+#newTask {
+	color: rgb(53, 244, 41);
+	border-color: rgb(53, 244, 41)
+}
+
+#all, #complete, #incomplete {
+	color: rgb(228, 158, 57);
+	border-color: rgb(228, 158, 57);
+}
+
+.hidden {
+	display: none;
+}
+
+#task-container, #complete-container, #incomplete-container {
+	text-align: center;
+	height: 100%;
+	background: rgb(18, 33, 38);
+}
+
+.task {
+	background: rgb(30, 64, 73);
+	padding: 10px;
+	padding-left: 10px;
+	margin: 10px;
+	display: inline-block;
+	width: 300px;
+	height: 180px;
+	border-radius: 5px;
+	position: relative;
+	vertical-align: top
+}
+
+.checkBox {
+	display: inline-block;
+	vertical-align: top;
+	border: solid 3px rgb(247, 45, 73);
+	height: 20px;
+	width: 20px;
+	
+}
+
+.taskLine {
+	display: inline-block;
+	width: 245px;
+	position: relative;
+	color: rgb(199, 223, 230);
+	position: relative;
+	
+}
+
+.taskName {
+	font-size: 22px;
+	line-height: 22px;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+
+.createdAt {
+	margin-bottom: 10px;
+}
+
+.value {
+	margin-bottom: 10px;
+}
+
+.edit-button {
+	color: rgb(40, 158, 191);
+	border-color: rgb(40, 158, 191);
+	position: absolute;
+	left: 15px;
+	bottom: 10px;
+}
+
+.delete-button {
+	color: rgb(18, 33, 38);
+	border-color: rgb(18, 33, 38);
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+
+#save-task, #cancel {
+	color: rgb(40, 158, 191);
+	border-color: rgb(40, 158, 191);
+}
+
+.check {
+	border-color: rgb(53, 244, 41);
+}
+
+.lineThrough {
+	text-decoration: line-through;
+	color: rgb(150, 150, 150);
+}
+
+.input-container {
+	text-align: center;
+}
+
+.row {
+	margin-bottom: 10px;
+}
