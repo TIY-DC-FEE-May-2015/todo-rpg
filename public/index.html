@@ -2,8 +2,105 @@
 <html>
   <head>
     <title>TodoRPG</title>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="todo.css"/>
+    <link href='//fonts.googleapis.com/css?family=Monofett' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Orbitron:900' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Cantarell:700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    Hey, you should put some content here!!
+    
+    <template id="task-template">
+  		<div class="template-container">
+  		  <div class="value">{{ value }} pts</div>
+
+	      <div class="il task-template"> 
+	      	<input type="checkbox" class="il taskStatus"/>
+	      	{{ task }}
+	      </div>
+      	</div>
+    </template>
+
+    <template id="stat-template">
+  		<div class="stat-template-container">
+  		  <div class="experienceStat"><div class="il statRow">Experience:</div> {{ experience }}</div>
+  		  <div class="level"><div class="il statRow">Levels Gained:</div> {{ level }}</div>
+  		  <div class="levelup"><div class="il statRow">Experience to next level:</div> {{ expToNextLevel}}</div>
+  		  <div class="tasksCompleted"><div class="il statRow">Tasks Completed:</div> {{ completed }}</div>
+  		  <div class="percentCompleted"><div class="il statRow">Completed task %:</div> <div class="il" id="percentage"></div></div>
+      	</div>
+    </template>
+
+    <!--<template id="task-template-completion">
+  		<div class="template-container">
+
+			<div class="il title" id="complete"> Completed</div>
+			<div class="il title" id="incomplete"> Active</div>
+
+			<div  class="TaskStatus"> 
+			 <div class="value">{{ value }} pts</div>
+			 <div class="il task-template"> 
+				 <input type="checkbox" class="il taskStatus"/>
+				 {{ task }}
+			 </div>
+			</div>
+	    </div>
+    </template>-->
+
+
+
+
+    <div class="container">
+    	<div class="header">
+    		<div class="il avatar"><img src="Assets/avatar1.png"><span>claudia1201</span></div>
+    		<div class="il title-header"> To Do RPG</div>
+    		<div class="il experience"> Experience
+    			<div class="experienceHeader"></div>
+    		</div>
+    	</div>
+    	<div class="task-container">
+    		<div class="il" id="task">
+    			<div class="title"> All Tasks</div>
+    		</div>
+	    	<div class="il" id="completed-incomplete-container">
+	    		<!--<div class="il title" id="complete"> Completed</div>
+	    		<div class="il title" id="incomplete"> Incomplete</div>
+	    		<div  class="complete hide"> </div>
+	    		<div  class="incomplete"> </div>-->    		
+	    		
+	    		<div  class="il complete"> 
+	    			<div class=" title" id="complete"> Completed</div>
+	    		</div>
+	    		<div  class="il incomplete">
+	    			<div class="title" id="incomplete"> Incomplete</div>
+	    		 </div>
+	    	</div>
+	    	<div class="il task-info">
+	    		<div id="add-task"> 
+	    			<div class="title">Add Task</div>
+	    			<div class="taskInput"> Task: <input type="text" id="new-task" /> </div>
+	    			<div class="valueInput"> Value: <input type="text" id="new-value" /> </div>
+	    			<button id="addTaskButton"> Add Task</button>
+	    		</div>
+	    		<div class="stats">
+	    			<div class="title">Stats</div>
+	    		</div>
+	    	</div>
+	    </div>
+    </div>
+
+	  <script src="libs/underscore.js"></script>
+	  <script src="libs/jquery.js"></script>
+	  <script src="libs/handlebars.js"></script>
+	  <script src="libs/backbone.js"></script>
+
+	   <script src="todo.js"></script>
+
+	  <script src="todo-model.js"></script>
+	  <script src="todo-collection.js"></script>
+	  <script src="todo-view.js"></script>
+
+	 
   </body>
 </html>
